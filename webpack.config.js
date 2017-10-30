@@ -55,7 +55,7 @@ const config = {
     plugins: [
         new webpack.optimize.UglifyJsPlugin(),
         new HtmlWebpackPlugin({
-            template: './app/index.html'
+            template: './src/app/index.html'
         })
     ]
 }
