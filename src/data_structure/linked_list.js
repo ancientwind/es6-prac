@@ -9,9 +9,9 @@ export class LinkedList {
 		this.head = null
 		this.tail = null
 	}
-	
+
 	/**
-	* add a new node(value) at index position;
+	* add a new node(value) at index position or to the end
 	* the existed node will move behind
 	*/
 	add(value, index) {
@@ -33,8 +33,15 @@ export class LinkedList {
 				node.prev = nextNode.prev
 				nextNode.prev = node
 			}
-			this.length++
+		} else {
+			// add to the end
+			this.tail.next = node
+			node.prev = this.tail
+			this.tail = node
 		}
+
+		this.length++
+
 	}
 
 	/**
@@ -85,5 +92,8 @@ export class LinkedList {
 			return node
 	}
 
+	isEmpty() {
+		return this.length === 0
+	}
 
 }
