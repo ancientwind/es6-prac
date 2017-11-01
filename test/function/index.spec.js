@@ -8,6 +8,6 @@ describe( ' genereate namd and location ', () => {
     })
 
     it('should generate location: Uta', () => {
-        expect(location === 'Uta').to.be.true
+        expect(location).to.equal('Uta')
     })
 })

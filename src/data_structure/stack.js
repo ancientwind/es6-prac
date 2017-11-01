@@ -1,6 +1,6 @@
 import LinkedList from './linked_list'
 
-export class Stack {
+export default class Stack {
   constructor() {
     this._elements = new LinkedList()
 

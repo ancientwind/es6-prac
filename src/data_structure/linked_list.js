@@ -3,7 +3,7 @@
 */
 import Node from './linked_list'
 
-export class LinkedList {
+export default class LinkedList {
 	constructor() {
 		this.length = 0
 		this.head = null
@@ -34,10 +34,14 @@ export class LinkedList {
 				nextNode.prev = node
 			}
 		} else {
-			// add to the end
-			this.tail.next = node
-			node.prev = this.tail
-			this.tail = node
+            // add to the end
+            if (this.length === 0) {
+            	this.head = this.tail = node
+			} else {
+            	node.prev = this.tail
+				this.tail.next = node
+				this.tail = node
+			}
 		}
 
 		this.length++
@@ -64,7 +68,7 @@ export class LinkedList {
 			node.prev.next = node.next
 			node.next.prev = node.prev
 		}
-		this.length--;
+		this.length--
 	}
 
 	validate(index) {
@@ -84,13 +88,14 @@ export class LinkedList {
 	}
 
 	getNode(index) {
-		if (index !== undefined && index < this.length && index >= 0) {
-			let node = this.head
-			for (var i = index ; i > 0; i--) {
-				node = node.next
-			}
-			return node
-	}
+        if (index !== undefined && index < this.length && index >= 0) {
+            let node = this.head
+            for (let i = index; i > 0; i--) {
+                node = node.next
+            }
+            return node
+        }
+    }
 
 	isEmpty() {
 		return this.length === 0
