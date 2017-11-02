@@ -28,7 +28,7 @@ const getDevtool = () => {
 
 const config = {
     
-    entry: './main.js',
+    entry: ['babel-polyfill','./main.js'],
 
     output: {
         path: path.resolve(__dirname + 'dist'),
