@@ -46,7 +46,7 @@ const config = {
                     loader: 'babel-loader',
                     options: {
                         presets: ['env'],
-                        plugins: ['istanbul']
+                        plugins: ['istanbul','transform-decorators-legacy']
                     }
                 }
             }
