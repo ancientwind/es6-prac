@@ -1,11 +1,11 @@
 /**
 * doubly linked list
 */
-import Node from './linked_list'
+import Node from './node'
 
-export default class LinkedList {
+export default class  {
 	constructor() {
-		this.length = 0
+		this._length = 0
 		this.head = null
 		this.tail = null
 	}
@@ -15,15 +15,15 @@ export default class LinkedList {
 	* the existed node will move behind
 	*/
 	add(value, index) {
-		if (index > this.length || index < 0) {
+		if (index > this._length || index < 0) {
 			throw new Error('out of index')
 		}
 
 		const node = new Node(value)
 
-		if (index !== undefined && index < this.length) {
+		if (index !== undefined && index < this._length) {
 
-			if (this.length === 0) {
+			if (this._length === 0) {
 				this.head = node
 				this.tail = node
 			} else {
@@ -35,8 +35,9 @@ export default class LinkedList {
 			}
 		} else {
             // add to the end
-            if (this.length === 0) {
-            	this.head = this.tail = node
+            if (this._length === 0) {
+            	this.head = node
+				this.tail = node
 			} else {
             	node.prev = this.tail
 				this.tail.next = node
@@ -44,7 +45,7 @@ export default class LinkedList {
 			}
 		}
 
-		this.length++
+		this._length++
 
 	}
 
@@ -68,11 +69,11 @@ export default class LinkedList {
 			node.prev.next = node.next
 			node.next.prev = node.prev
 		}
-		this.length--
+		this._length--
 	}
 
 	validate(index) {
-		if ( index === undefined || index > this.length || index < 0) {
+		if ( index === undefined || index > this._length || index < 0) {
 			return false
 		} else {
 			return true
@@ -88,7 +89,7 @@ export default class LinkedList {
 	}
 
 	getNode(index) {
-        if (index !== undefined && index < this.length && index >= 0) {
+        if (index !== undefined && index < this._length && index >= 0) {
             let node = this.head
             for (let i = index; i > 0; i--) {
                 node = node.next
@@ -98,7 +99,7 @@ export default class LinkedList {
     }
 
 	isEmpty() {
-		return this.length === 0
+		return this._length === 0
 	}
 
 }

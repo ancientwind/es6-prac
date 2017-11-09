@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event test</title>
+
+</head>
+<body>
+<p onclick="updateName()">
+    Hello, <span id = 'name'> Tom</span>
+    <input type="text" placeholder="input your name" size="20"/>
+    <button draggable="true" id="but" >UPDATE</button>
+</p>
+
+<p>
+    Note: the click handler is provided by element p, the click event can happen in anywhere inside p
+</p>
+
+
+<script type="text/javascript">
+    function updateName() {
+        var input = document.getElementsByTagName("input")[0]
+//        var input = document.querySelector("input")
+        console.log('click: ', input.value)
+        document.getElementsByTagName("span")[0].innerHTML = input.value
+        console.log('event target: ', event.target)
+        console.log('event currentTarget or this : ', event.currentTarget)
+    }
+
+//    document.getElementById("but").addEventListener('click', function (event) {
+//        console.log('target: ',event.target)
+//        console.log('current target: ',event.currentTarget)
+//        console.log(event)
+//    })
+
+</script>
+</body>
+</html>

@@ -21,7 +21,7 @@ export default class Stack {
   pop() {
     if (!this.isEmpty()) {
       let node = this._elements.tail
-      this._elements.delete(node)
+      this._elements.delete(this.length - 1)
       return node.value
     }
   }
@@ -33,3 +33,10 @@ export default class Stack {
   }
 
 }
+
+let stack = new Stack()
+stack.push(18)
+stack.push(32)
+stack.push(36)
+stack.push('sda')
+console.log(stack.peak())
